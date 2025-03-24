@@ -1,0 +1,308 @@
+:host{
+  width: 100%;
+  height: fit-content;
+  min-height: 100vh;
+}
+
+.slika{
+  margin-left:1.8%; 
+  margin-top:0px;
+  border-radius: 20px;
+  float:right;
+  height: 320px;
+  width: 68.2%;
+  background-image: url('/assets/images/application-images/blue.jpg');
+  background-size: cover;
+}
+
+
+.hello {
+  position:relative;
+  position: relative;
+  display: inline-block;
+  flex-direction: column;
+}
+
+.widgets {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-height: 120px;
+  justify-content:space-between;
+  
+}
+.promotions
+{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+padding-top: 25px;
+
+}
+
+.light-mode {
+  color: #323232 !important;
+}
+
+.light-mode-card {
+  box-shadow: 8px 8px 35px -15px rgb(200, 200, 200);
+}
+.light-mode-card div {
+  color:#323232 !important;
+}
+
+.prviDeoPrognoza{
+
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+padding-top: 25px;
+
+}
+.promotion
+{
+padding-top: 15px;
+flex-basis: calc(23%);
+margin-bottom: 30px;
+display: inline-block;
+position: relative;
+flex-direction: row;
+max-width: 23%;
+min-width: 32%;
+width:20%;
+
+}
+.promotion1
+{
+padding-top: 15px;
+flex-basis: calc(23%);
+margin-bottom: 30px;
+display: inline-block;
+position: relative;
+flex-direction: row;
+max-width: 23%;
+min-width: 32%;
+width:20%;
+margin-left: 2%;
+
+}
+
+.widget {
+  flex-basis: calc(23%);
+  margin-bottom: 30px;
+  display: inline-block;
+  position: relative;
+  flex-direction: row;
+  /*max-width: 23%;*/
+  min-width: 240px;
+  width:20%;
+}
+.iframe-div {
+  position: relative;
+  display:flex;
+  overflow: hidden;
+  flex-direction: row;
+  border-radius: 32px; 
+  z-index:1;  
+  width:100%;
+  height: 90%;
+}
+
+:host>.filter-div {
+  position: absolute;
+  right:30px;
+  top :30px;
+  width:120px;
+  height:50px;
+  font-size: 20px;
+  z-index:2;
+  /*
+  background-color: #222222;
+  */
+  border-radius: 32px;
+}
+
+.line
+{
+background-color: #1b1b1b;
+width: 600px;
+border-radius: 20px;
+padding-top: 10px;
+}
+
+.line3
+{
+background-color: #1b1b1b;
+width: 400px;
+border-radius: 20px;
+padding-top: 10px;
+margin-top: 20px;
+margin-left: 40px;
+}
+.crsl {
+  
+}
+.line2{
+float:left;
+}
+
+.vreme{
+width: 100%;
+}
+
+h6 {
+padding:10px;
+}
+
+.divVreme{
+margin:0px 0 0 2.2%;
+width: 19.8%; 
+display: inline;
+}
+
+.prviDeo{
+width: 78%;
+}
+
+@media only screen and (max-width: 1482px) {
+  .slika{
+    margin-right: 0;
+    width: 60%;
+    margin-left: 70px;
+  }
+}
+
+@media only screen and (max-width: 1126px) {
+.prviDeo{
+  width: 100%;
+}
+.divVreme{
+  width: 50%;
+}
+
+.vreme{
+  margin: 0;
+}
+.slika{
+  width: 52%;
+  margin-left: 150px;
+  margin-right: 0;
+}
+}
+
+@media only screen and (max-width: 979px) {
+  .widget {
+    -ms-flex-preferred-size: calc(50% - 30px);
+    flex-basis: calc(50% - 30px);
+    margin-bottom: 20px;
+  }
+  .widgets {
+    margin-bottom:30px;
+  }
+
+  .divVreme {
+    width:100%;
+  }
+  .vreme {
+    width:100%;
+    margin:auto;
+  }
+
+  .slika{
+    width: 46%;
+    margin-left: 150px;
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 796px) {
+  .widget {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+  .widgets {
+    margin-bottom:20px;
+  }
+
+  .slika{
+    display:none;
+  }
+}
+@media only screen and (max-width: 500px) {
+  
+  .promotions {
+    min-width: 250px;
+    overflow-x: scroll;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom:12px;
+  }
+  .promotion, .promotion1{
+    display: inline-block;
+    vertical-align: top;
+    min-width: 240px;
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    height:fit-content;
+    min-height:  340px;
+  }
+
+  .widgets{
+    overflow-x: scroll;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .widget{
+    margin-right: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .widgets {
+    margin-bottom:20px;
+  }
+  .divVreme {
+    margin:0px 0px;
+  }
+
+  .crsl {
+    width:100% !important;
+  }
+  /*.widgets::-webkit-scrollbar {
+    width: 10px;
+    margin-bottom: -5px;
+  }
+
+  .widgets::-webkit-scrollbar-thumb {
+    background-color: rgba(214, 214, 214, 0.212); 
+    border-radius: 10px; 
+  }
+
+  .promotions::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .promotions::-webkit-scrollbar-thumb {
+    background-color: rgba(214, 214, 214, 0.212); 
+    border-radius: 10px; 
+  }*/
+}
+
+
+/* ::ng-deep .apexcharts-series path:nth-child(1) {
+  fill: #F48207;
+}
+
+::ng-deep .apexcharts-series path:nth-child(2) {
+  fill: #85E000;
+}
+
+::ng-deep .apexcharts-series path:nth-child(3) {
+  fill: #D63F74;
+} */
+
+
+::ng-deep #SvgjsPath1012 {
+  fill:red;
+}

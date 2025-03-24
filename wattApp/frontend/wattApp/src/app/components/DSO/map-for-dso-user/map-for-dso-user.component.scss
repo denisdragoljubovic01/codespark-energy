@@ -1,0 +1,21 @@
+
+.light-mode-map {
+    box-shadow: 8px 8px 35px -15px rgb(200, 200, 200) !important;
+}
+
+
+#map4{
+    left:0;
+    top:0;
+    flex-direction: column;
+    width:100%;
+    height:100%;
+    border-radius: 20px;
+    background-color: white;
+    transition: ease-in-out;
+    box-shadow:5px 5px 15px black;
+    z-index: 1;
+}
+
+
+  

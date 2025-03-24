@@ -1,0 +1,354 @@
+<standard-template >
+    <app-title-bar [ngClass]="{'light-mode-title-bar': lightMode}">
+      <h3>Home</h3>
+    </app-title-bar>
+    <app-center-bar *ngIf="loader"><app-loader></app-loader></app-center-bar>
+    <app-center-bar *ngIf="!loader">
+    <div class="widgets" >
+    
+      <app-widget [subTitle]="'Total consumed electricity this month'" [Title]="monthPowerUsageConsumer + ' kWh'" [isBlue]="true" [isBgBlue]="true" class="widget">
+      </app-widget>
+      <app-widget [subTitle]="'Total produced electricity this month'" [Title]="monthPowerUsageProducer + ' kWh'" [isYellow]="true" [isBgYellow]="true" class="widget">
+      </app-widget>
+      <app-widget  [subTitle]="'Total stocked  electricity this month'" [Title]="monthPowerUsageStorage+ ' kWh'" [isPink]="true" [isBgPink]="true" class="widget">
+      </app-widget>
+      <app-widget  [subTitle]="'Current price of electricity'" [Title]="dayPowerPrice + ' RSD kWh'"  [isOrange]="true" [isBgOrange]="true" class="widget">
+      </app-widget>
+        
+    </div>
+    <div style="width:100%; height:fit-content; display:flex; flex-direction:row;margin-bottom:32px;" class="pdd-div ovrplnl"  >
+      <span #reg><i [ngClass]="{'light-theme-color-gray-323232':lightMode}" class="fa fa-info-circle" style="cursor:pointer; padding-top: 10px; width: 30px;font-size:20px;" aria-hidden="true" (click)="op.toggle($event)"></i></span>
+      <p-overlayPanel #op [ngClass]="{'light-mode':lightMode, 'dark-mode':!lightMode}"  [appendTo]="op">
+        <p style="width:350px">In this application, you can analyze different aspects of energy usage.</p>
+        <p style="width:350px">
+          The first dropdown allows you to select the type of data you want to analyze, such as 'Consumption', 'Production', or 'Stock'. Choose the option that corresponds to the specific aspect you are interested in.
+          
+          The second dropdown enables you to specify the time range for your analysis. You can choose from options like 'History', 'Forecast', or 'History & Forecast'. Select the appropriate option based on the type of data and timeframe you want to explore.
+          
+          Lastly, the third dropdown lets you choose the duration or period for which you want to view the data. Select the desired time period option to focus your analysis on a specific range.
+          
+          By utilizing these dropdowns effectively, you can gain valuable insights into energy consumption, production, and stock levels based on historical or forecasted data within the desired time frame.</p>
+      </p-overlayPanel>
+      <div [ngClass]="{'light-mode':lightMode,'dark-mode':!lightMode}" ><p-dropdown id="p1" [options]="type" [(ngModel)]="selectedType" optionLabel="name" (onChange)="dropdownChange()" >
+      </p-dropdown></div>
+      <div [ngClass]="{'light-mode':lightMode,'dark-mode':!lightMode}" ><p-dropdown id="p2" [options]="type2"  [(ngModel)]="selectedHF"  optionLabel="name" (onChange)="updateType3()" >
+      </p-dropdown></div>
+      <div [ngClass]="{'light-mode':lightMode,'dark-mode':!lightMode}" ><p-dropdown id="p3" [options]="type3" [(ngModel)]="selectedDate" optionLabel="name" (onChange)="dropdownChange()" >
+      </p-dropdown></div>
+    </div>
+    
+  
+    <div class="main-grid">
+      <app-history-forecast style="width: 62.5% !important;" [boja1]="color1" [boja2]="color2" [naziv1]="name1" [naziv2]="name2" [array] = "History" [array2]="Forecast" [array3] = "dates" [Title]="Title" [Period]="Period" class="chart" id="oneChart"  ></app-history-forecast>
+      
+      <div class="stats-cards">
+        
+        <app-stats-card class="stats-card" [isBgBlue]="true" [Title]="TitleMin" [subTitle]="theDay+ dataMin" [value]="min"></app-stats-card>
+        <app-stats-card class="stats-card" [isBgPurple]="true" [Title]="TittleMax" [subTitle]="theDay + dataMax"  [value]="max"></app-stats-card>
+        <app-stats-card class="stats-card" [isBgPink]="true" [Title]="TitleAverage"  [value]="average"></app-stats-card>
+        <app-stats-card class="stats-card" [isBgOrange]="true" [Title]="TitleTotal" [value]="total"></app-stats-card>
+       
+      </div>
+
+<!-- TABELA - LIGT VERZIJA - ne brisati
+
+-->
+<!-- 
+  
+          background: linear-gradient(180deg, #151515 50%, #121212 100%) ;
+          box-shadow: 5px 5px 15px black;
+          
+-->
+      <div class="bottom-grid">
+        <app-history-forecast-table *ngIf="table"
+          style="
+          margin-top:calc(2%);
+          display: flex;
+          position: relative;
+          flex-direction: column;
+          height: fit-content;
+          width: 49%;
+          border-radius: 20px;
+          transition: ease-in-out;
+          padding:10px 20px 30px 20px;" 
+          [name1]="name1" [name2]="name2" [hif]="hif"  [ngClass]="{'light-mode':lightMode,'dark-mode7':!lightMode,'dark-mode':!lightMode}">
+        </app-history-forecast-table>
+        <app-history-or-forecast-table  *ngIf="!table"
+        style="
+          margin-top:calc(2%);
+          display: flex;
+          position: relative;
+          flex-direction: column;
+          height: fit-content;
+          width: 49%;
+          border-radius: 20px;
+          transition: ease-in-out;
+          padding:10px 20px 30px 20px;"  [name]="name" [History]="History" [Forecast]="Forecast" [dates]="dates" [ngClass]="{'light-mode':lightMode,'dark-mode7':!lightMode,'dark-mode':!lightMode}">
+          </app-history-or-forecast-table>
+        <div class="bottom-right">
+          <div class="map">
+            <app-map-suburb [type]="selectedType" [date]="selectedDate"></app-map-suburb>
+          </div>  
+          <div class="wthr-frcst">
+
+            <app-weather-forecast7 style="width: 49%; margin-left:2%"></app-weather-forecast7>
+  
+          </div>
+      
+        </div>
+        
+      
+      </div>
+      
+  </div>
+  
+    
+      <!--<app-history-forecast-table></app-history-forecast-table>
+      -->
+      <!--<app-history-forecast-table class="marginLeft"></app-history-forecast-table>
+      -->
+    
+    
+    
+        <!--          MENAGE USER         -->
+    
+  <!--
+    <p-dialog [style]="{width:'40%'}" header="Title"  [transitionOptions]="'3ms'" 
+      [draggable]="true" [keepInViewport]="true" [resizable]="false" 
+      [blockScroll]="true" [closeOnEscape]="true" [dismissableMask]="true" 
+      [modal]="true" [(visible)]="display" [breakpoints]="{'960px': '75vw', '640px': '90vw'}"
+      [closable]="true" >
+      <ng-template pTemplate="header" class="header-dialog">
+        <span>Menage user</span>
+      </ng-template>
+  
+      <ng-template pTemplate="content">
+        <form [formGroup]="menageUserForm" >
+        
+        <div class="p-inputgroup p-inputtext-lg p-input-filled">
+          <div class="half">
+            <input formControlName="name" name="name" appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="NAME"> 
+            <input formControlName="lastname" name="lastname"  appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="LAST NAME"> 
+            <input formControlName="username" name="username"  appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="USERNAME"> 
+          </div>
+        
+          <div class="half">
+            <input formControlName="email" name="email" appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="EMAIL"> 
+            <input formControlName="phone" name="phone" appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="PHONE NUMBER"> 
+            <input formControlName="address" name="address" appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="ADDRESS">     
+          </div>
+        </div> 
+        </form>
+      </ng-template>
+      
+      <ng-template pTemplate="footer" style="min-height:100px;" >
+        <button type="button" class="footer-button" icon="pi pi-info-circle" label="Show">Save</button>
+  
+      </ng-template>
+    </p-dialog>
+  
+    <button type="button"  (click)="showDialog()" icon="pi pi-info-circle" label="Show"></button>
+  
+  
+        ADD USER         
+  
+    <p-dialog [style]="{width:'40%'}" header="Title2"  [transitionOptions]="'3ms'" 
+      [draggable]="true" [keepInViewport]="true" [resizable]="false" 
+      [blockScroll]="true" [closeOnEscape]="true" [dismissableMask]="true" 
+      [modal]="true" [(visible)]="display2" [breakpoints]="{'960px': '75vw', '640px': '90vw'}"
+      [closable]="true" >
+      <ng-template pTemplate="header" class="header-dialog">
+        <span>Add user</span>
+      </ng-template>
+      
+      <ng-template pTemplate="content">
+        <form [formGroup]="menageUserForm" >
+        
+        <div class="p-inputgroup p-inputtext-lg p-input-filled">
+          <div class="half">
+            <input formControlName="name" name="name" appendTo="body" type="text"  class="p-inputtext-lg"  placeholder="NAME"> 
+            <input formControlName="lastname" name="lastname"  appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="LAST NAME"> 
+            <input formControlName="username" name="username"  appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="USERNAME"> 
+          </div>
+        
+          <div class="half">
+            <input formControlName="email" name="email" appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="EMAIL"> 
+            <input formControlName="phone" name="phone" appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="PHONE NUMBER"> 
+            <input formControlName="address" name="address" appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="ADDRESS">     
+          </div>
+        </div> 
+     </form>
+      </ng-template>
+      
+      <ng-template pTemplate="footer" >
+        <button type="button" class="footer-button" icon="pi pi-info-circle" label="Show"><span>Save</span></button>
+  
+      </ng-template>
+    </p-dialog>
+  
+    <button type="button" style="margin-top:30px;"  (click)="showDialog2()" icon="pi pi-info-circle" label="Show"></button>
+  
+    
+    <p-dialog [style]="{width:'20%'}" header="Title"  [transitionOptions]="'3ms'" 
+      [draggable]="false" [keepInViewport]="true" [resizable]="false" 
+      [blockScroll]="true" [closeOnEscape]="true" [dismissableMask]="true" 
+      [modal]="true" [(visible)]="display3" [breakpoints]="{'960px': '75vw', '640px': '90vw'}"
+      [closable]="true" >
+      <ng-template pTemplate="header" class="header-dialog">
+        <span>Delete device</span>
+      </ng-template>
+      
+      <ng-template pTemplate="center">
+        <div class="delete-device-content">
+          Are you sure you want to erase the device?
+          All data will be deleted and you will not be able to recover it.
+  
+        </div>
+      </ng-template>
+      
+      <ng-template pTemplate="footer" >
+        <button type="button" class="no-button" icon="fa-home" label="No"><span clas="no-span">No</span></button>
+        <button type="button" class="yes-button" icon="pi pi-info-circle" label="Yes"><span clas="no-span">Yes</span></button>
+    
+      </ng-template>
+    </p-dialog>
+  
+    <button type="button" style="margin-top:30px;"  (click)="showDialog3()" icon="pi pi-info-circle" label="Show"></button>
+  
+  
+    <p-dialog [style]="{width:'40%'}" header="Title"  [transitionOptions]="'3ms'" 
+    [draggable]="true" [keepInViewport]="true" [resizable]="false" 
+    [blockScroll]="true" [closeOnEscape]="true" [dismissableMask]="true" 
+    [modal]="true" [(visible)]="display4" [breakpoints]="{'960px': '75vw', '640px': '90vw'}"
+    [closable]="true" >
+    <ng-template pTemplate="header" class="header-dialog">
+      <span>Menage Device</span>
+    </ng-template>
+  
+    <ng-template pTemplate="content">
+      <form [formGroup]="menageUserForm" >  
+      <div class="p-inputgroup p-inputtext-lg p-input-filled">
+        <div class="half">  
+          ZA UREDJAJ [FRIZIDER / SPORET...] 
+          <p-dropdown [options]="cities" appendTo="body" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+          ZA TIP UREDJAJA [PRODUCTION / CONSUMPTION / STOCK] 
+          <p-dropdown [options]="cities" appendTo="body" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+        </div>
+        
+        <div class="half">       
+          ZA SOBU [KUPATILO / KUHINJA ...] 
+          <p-dropdown [options]="cities" appendTo="body" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+          ZA NAZIV UREDJAJA
+          <input style="margin-top:45px;" formControlName="name" name="name"  appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="DEVICE NAME"> 
+        </div>
+      </div> 
+      </form>
+    </ng-template>
+    
+    <ng-template pTemplate="footer" style="min-height:100px;" >
+      <button type="button" class="footer-button" icon="pi pi-info-circle" label="Show"><span>Save</span></button>
+  
+    </ng-template>
+  </p-dialog>
+  
+  <button type="button" style="margin-top:30px;" (click)="showDialog4()" icon="pi pi-info-circle" label="Show"></button>
+  
+  
+  <p-dialog [style]="{width:'40%'}" header="Title"  [transitionOptions]="'3ms'" 
+  [draggable]="true" [keepInViewport]="true" [resizable]="false" 
+  [blockScroll]="true" [closeOnEscape]="true" [dismissableMask]="true" 
+  [modal]="true" [(visible)]="display5" [breakpoints]="{'960px': '75vw', '640px': '90vw'}"
+  [closable]="true" >
+  <ng-template pTemplate="header" class="header-dialog">
+    <span>Add Device</span>
+  </ng-template>
+  
+  <ng-template pTemplate="content">
+    <form [formGroup]="menageUserForm" >  
+    <div class="p-inputgroup p-inputtext-lg p-input-filled">
+      <div class="half">  
+         ZA UREDJAJ [FRIZIDER / SPORET...]    
+        <p-dropdown [options]="cities" appendTo="body" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+         ZA TIP UREDJAJA [PRODUCTION / CONSUMPTION / STOCK]    
+        <p-dropdown [options]="cities" appendTo="body" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+      </div>
+      
+      <div class="half">       
+         ZA SOBU [KUPATILO / KUHINJA ...] 
+        <p-dropdown [options]="cities" appendTo="body" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+         ZA NAZIV UREDJAJA
+        <input style="margin-top:45px;" formControlName="name" name="name"  appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="DEVICE NAME"> 
+      </div>
+    </div> 
+    </form>
+  </ng-template>
+  
+  <ng-template pTemplate="footer" style="min-height:100px;" >
+    <button type="button" class="footer-button" icon="pi pi-info-circle" label="Show"><span>Save</span></button>
+  
+  </ng-template>
+  </p-dialog>
+  
+  <button type="button" style="margin-top:30px;" (click)="showDialog5()" icon="pi pi-info-circle" label="Show"></button>
+  
+  
+  <p-dialog [style]="{width:'40%'}" header="Title2"  [transitionOptions]="'3ms'" 
+    [draggable]="true" [keepInViewport]="true" [resizable]="false" 
+    [blockScroll]="true" [closeOnEscape]="true" [dismissableMask]="true" 
+    [modal]="true" [(visible)]="display6" [breakpoints]="{'960px': '75vw', '640px': '90vw'}"
+    [closable]="true" >
+    <ng-template pTemplate="header" class="header-dialog">
+      <span>Registration</span>
+    </ng-template>
+    
+    <ng-template pTemplate="content">
+      <form [formGroup]="menageUserForm" >
+      
+      <div class="p-inputgroup p-inputtext-lg p-input-filled">
+        <div class="half">
+          <input formControlName="name" name="name" appendTo="body" type="text"  class="p-inputtext-lg"  placeholder="NAME">
+          <input formControlName="lastname" name="lastname"  appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="LAST NAME"> 
+          <input formControlName="username" name="username"  appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="USERNAME"> 
+          <input formControlName="password" name="password" appendTo="body" type="text"  class="p-inputtext-lg"  placeholder="PASSWORD"> 
+          <input formControlName="password2" name="password2" appendTo="body" type="text"  class="p-inputtext-lg"  placeholder="REPEAT PASSWORD"> 
+          
+        </div>
+      
+        <div class="half">
+          <input formControlName="email" name="email" appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="EMAIL"> 
+          <input formControlName="phone" name="phone" appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="PHONE NUMBER"> 
+          <input formControlName="address" name="address" appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="ADDRESS">     
+          <input formControlName="role" name="role" appendTo="body" type="text"  class="p-inputtext-lg"  placeholder="ROLE"> 
+          
+        </div>
+      </div> 
+    </form>
+    </ng-template>
+    
+    <ng-template pTemplate="footer" >
+      <button type="button" class="footer-button" icon="pi pi-info-circle" label="Show"><span>Save</span></button>
+  
+    </ng-template>
+  </p-dialog>
+  
+  <button type="button" style="margin-top:30px;"  (click)="showDialog6()" icon="pi pi-info-circle" label="Show"></button>
+  
+  
+  
+  
+  
+  
+  ADD NEWS
+  
+  
+  
+  
+   -->
+  
+  <!--
+    <iframe class="iframe-div" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d17698.97958143962!2d20.902382747133068!3d44.01949126285242!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2srs!4v1678806582786!5m2!1sen!2srs" style="border:0;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    -->
+    <!--<div class="filter-div"><span>filter</span></div>-->
+  </app-center-bar>
+  
+  </standard-template>

@@ -1,0 +1,26 @@
+:host{
+    /*
+    background-color: #1b1b1b;
+    */
+    display: flex;
+    flex-direction: row;
+    margin: 32px 32px 0px 32px;
+    padding: 12px;
+    height: 70px;
+    width: fit-content;
+    min-width: 150px;
+    max-width: 100%;
+    border-radius: 20px;
+    /*
+    box-shadow: 5px 5px 15px black; 
+    */
+    font-Family: 'Montserrat';
+}
+
+
+@media only screen and (max-width:480px) {
+    :host {
+        margin:32px 20px 0px 20px;
+        font-size:16px;
+    }
+}

@@ -1,0 +1,52 @@
+
+<standard-template>
+    <app-title-bar [ngClass]="{'light-mode-title-bar':lightMode}">
+      <h3 class="title" >Conatct us</h3>
+    </app-title-bar>
+  
+    <app-center-bar>
+			<section class="login">
+				<div class="login_box"  [ngClass]="{'light-mode':lightMode,'dark-mode3':!lightMode}">
+					<div class="left">
+						<div class="contact">
+							<form  [formGroup]="contactForm" action="">
+								<h3>Send us a message</h3>
+								<input type="text"formControlName="name"  placeholder="Name" name="Name">
+								<input type="text" (ngModelChange)="checkValidEmail($event)" formControlName="email" placeholder="Email" name="Email">
+								<input type="text" formControlName="subject" placeholder="Subject" name="subject">
+								<input type="text" formControlName="message" placeholder="Message" name="message">
+								<button (click)="SendMessage()" class="submit"><span>Send Message</span></button>
+							</form>
+						</div>
+					</div>
+					<div class="right">
+						
+					<p class="text2">Contact us</p>	
+						<p class="text3">We're open for any suggestion or just to have a chat</p>	
+						<div class="info">
+							<i class="fa-sharp fa-solid fa-location-dot"></i>
+							<p class="bold">Address:</p>
+							<p class="naziv">Radoja Domanovića 12</p>
+						</div>
+						<div class="info">
+							<i class="fa-solid fa-phone"></i>
+							<p class="bold">Phone:</p>
+							<p class="naziv">+381 600102030</p>
+						</div>
+						<div class="info">
+							<i class="fa-solid fa-envelope"></i>
+							<p class="bold">Email:</p>
+							<p class="naziv">dsosikg@gmail.com</p>
+						</div>
+						<div class="info">
+							<i class="fa-solid fa-earth-americas"></i>
+							<p class="bold">Website:</p>
+							<p class="naziv">softeng.pmg.kg.ac:10011</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+    </app-center-bar>
+    
+  </standard-template>

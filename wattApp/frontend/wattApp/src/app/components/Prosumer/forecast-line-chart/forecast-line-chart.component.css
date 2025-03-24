@@ -1,0 +1,21 @@
+:host{
+    position: relative;
+    flex-direction: row;
+    height: 300px;
+    width: 100%;
+    margin-bottom:30px;
+    min-width: 350px;
+    border-radius: 20px;
+    transition: ease-in-out;
+    margin-top:30px;
+}
+
+
+.div{
+    padding: 20px 5px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    min-width: 300px;
+    width: 100%;
+    align-items: center;
+}

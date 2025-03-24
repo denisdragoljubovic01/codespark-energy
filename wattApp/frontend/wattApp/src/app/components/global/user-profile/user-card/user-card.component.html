@@ -1,0 +1,160 @@
+
+<div class="d-flex flex-column align-items-center text-center" style="width:100%;">
+  <img [src]="userImageUrlEndpoint" class="rounded-circle"  width="110" height="110">
+  <div class="pen-container" (click)="showDialog3()" [ngClass]="{'light-theme-text-color-black':!lightMode,'light-theme-background-white':!lightMode,'dark-theme-smaller-shadow':lightMode,'light-theme-smaller-shadow':!lightMode,'dark-theme-background-1b1b1b':lightMode,'color-white':lightMode}">
+    <i class="pen fa-solid fa-pen"></i>
+  </div>  
+  <div class="mt-3" style="margin-bottom:20px;">
+        <h3 style="margin-bottom: 30px;" class="username-title" [ngClass]="{'text-color-blue':!lightMode}">{{ userInfo?.firstName }} {{ userInfo?.lastName }}</h3>
+        <h3 style="margin-bottom: 30px;"></h3>
+        <div class="flexRow button-div" style="justify-content:center">
+          <p-button label="Edit" (click)="showDialog()"></p-button>
+         
+        </div>
+
+        <!--Dialog-->
+        <p-dialog header="Title" [style]="{width:'40%'}"  [transitionOptions]="'3ms'" #edProfile
+          [draggable]="false" [keepInViewport]="true" [resizable]="false" 
+          [blockScroll]="true" [closeOnEscape]="true" [dismissableMask]="true"  [ngClass]="{'light-mode':!lightMode, 'dark-mode':lightMode}" 
+          [modal]="true" [(visible)]="display" [breakpoints]="{'1360px': '85vw', '740px': '100vw'}"
+          [closable]="true">
+          <ng-template pTemplate="header" class="header-dialog">
+            <span>Manage user <i class="fa fa-info-circle" style="cursor:pointer" aria-hidden="true" (click)="op.toggle($event)"></i> </span>
+            <p-overlayPanel #op [ngClass]="{'light-mode':lightMode, 'dark-mode':!lightMode}" [appendTo]="edProfile">
+              <p style="width:350px">Dear user,</p> 
+              <p style="width:350px">Please make sure to fill out all the required fields when editing your profile. The email must be in the format firstPart@secondPart.thirdPart, with the firstPart containing at least 4 letters, and the secondPart and thirdPart having a minimum of 2 and a maximum of 4 letters.</p>
+              <p style="width:350px">Additionally, we kindly ask you to include the city name in the location field when updating it. Once you've made the changes, pressing Enter will display the updated location on the map. You can also click on the map to navigate to the specific location you clicked on.</p>
+            </p-overlayPanel>
+          </ng-template>
+          
+          <ng-template pTemplate="center">
+            <!--<form [formGroup]="menageUserForm" >-->
+          <form [formGroup]="menageUserForm">
+            <div class="p-inputgroup p-inputtext-lg p-input-filled">
+              <div class="half">
+                <!--<label for="label-input" >Name</label>-->
+                <input formControlName="firstName" name="firstName" appendTo="body" type="text"  class="p-inputtext-lg"  placeholder="NAME"> 
+                <!--<label for="label-input" >Last name</label>-->
+                <input formControlName="lastName" name="lastName"  appendTo="body" type="text" class="p-inputtext-lg"  placeholder="LASTNAME" > 
+                <!--<label for="label-input" >Username</label>-->
+                <input formControlName="username" name="username"  appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="USERNAME"> 
+                <!--<label for="label-input" >E-mail</label>-->
+                <input formControlName="email" name="email" appendTo="body" type="text"   class="p-inputtext-lg"  placeholder="EMAIL" > 
+                <!--<label for="label-input" >Phone number</label>-->
+                <input formControlName="phoneNumber" name="phone" appendTo="body" type="text"  class="p-inputtext-lg"  placeholder="PHONE NUMBER"> 
+              </div>
+            
+              <div class="half">
+                <!--<label for="label-input" >Address</label>-->
+                <input formControlName="address" name="address" appendTo="body" type="text"  class="p-inputtext-lg"  placeholder="ADDRESS" (change)="onAddressChange($event)"> 
+                <app-map-for-user-profile [address] = "value" (messageEvent)="receiveMessage($event)"></app-map-for-user-profile>    
+              </div>
+            </div> 
+          </form>
+          <!--</form>-->
+          </ng-template>
+          
+          <ng-template pTemplate="footer" >
+            <div class="button-div"><p-button (click)="edit()" type="button" label="Save"></p-button>
+            </div>
+            </ng-template>
+        </p-dialog>
+    </div>
+</div>
+<ul class="list-group list-group-flush">
+    <li class=" d-flex justify-content-between align-items-center flex-wrap" >
+        <h6 class="mb-0" [ngClass]="{'light-theme-text-color-black':!lightMode}">Full Name</h6>
+        <span class="text-secondary">{{ userInfo?.firstName }} {{ userInfo?.lastName }}</span>
+    </li>
+    <li class="d-flex justify-content-between align-items-center flex-wrap">
+        <h6 class="mb-0" [ngClass]="{'light-theme-text-color-black':!lightMode}">Username</h6>
+        <span class="text-secondary">{{userInfo?.username}}</span>
+    </li>
+    <li class="d-flex justify-content-between align-items-center flex-wrap">
+        <h6 class="mb-0" [ngClass]="{'light-theme-text-color-black':!lightMode}">Email</h6>
+        <span class="text-secondary" >{{ userInfo?.email }}</span>
+    </li>
+    <li class=" d-flex justify-content-between align-items-center flex-wrap">
+        <h6 class="mb-0" [ngClass]="{'light-theme-text-color-black':!lightMode}">Phone</h6>
+        <span class="text-secondary">{{userInfo?.phoneNumber}}</span>
+    </li>
+    <li class=" d-flex justify-content-between align-items-center flex-wrap">
+        <h6 class="mb-0" [ngClass]="{'light-theme-text-color-black':!lightMode}">Address</h6>
+        <span class="text-secondary">{{userInfo?.address}}</span>
+    </li>
+    <li class=" d-flex justify-content-between align-items-center flex-wrap" style="border:none;">
+      <h6 class="mb-0" [ngClass]="{'light-theme-text-color-black':!lightMode}">Role</h6>
+      <span class="text-secondary">{{ userInfo?.role }}</span>
+  </li>
+</ul>
+
+
+
+
+<p-dialog [style]="{width:'300px'}" header="Title"  [transitionOptions]="'3ms'" 
+[draggable]="true" [keepInViewport]="true" [resizable]="false" #edImg 
+[blockScroll]="true" [closeOnEscape]="true" [dismissableMask]="true" [ngClass]="{'light-mode':!lightMode, 'dark-mode':lightMode}" 
+[modal]="true" [(visible)]="display3" [breakpoints]="{'960px': '75vw', '640px': '90vw'}"
+[closable]="true" >
+<ng-template pTemplate="header" class="header-dialog">
+  <span>Edit profile image</span>
+</ng-template>
+
+<ng-template pTemplate="center">
+  <div class="flexRow">
+    <div class="button-div" style="margin-top:5px;color:black;margin-left:20px;"><p-fileUpload name="file" styleClass="margin-left__16px"
+      mode="basic" chooseLabel="Upload"
+      [url]="userImageUrlEndpoint" (onUpload)="onImageChange($event)"
+      accept="image/*" [auto]="true" [maxFileSize]="2000000">
+    </p-fileUpload></div>
+    <div class="remove-or-no" style="margin-top:5px;"><p-button (click)="deleteImage()" icon="fa-solid fa-minus" class="margin-left__16px " style="float:right" label="Remove"></p-button>
+    </div>
+    </div>
+</ng-template>
+
+</p-dialog>
+<!--<div class="row d-flex justify-content-center align-items-center h-100">
+<div class="rounded-top text-white d-flex " style="background-color:#161817; height:200px;">
+  <div class="ms-4 mt-5 d-flex flex-column" style="width: 200px;">
+    <img src="/assets/images/team-profile-pictures/vanja.png"
+      class="img-fluid img-thumbnail mt-4 mb-2"
+      style="width: 200px; z-index: 1">
+    <button type="button"
+      style="z-index: 1;">
+      Edit profile
+    </button>
+  </div>
+  <div class="ms-3" style="margin-top: 150px;">
+    <h3>{{userInfo.firstName}} {{userInfo.lastName}}</h3>
+  </div>
+</div>
+<div class="p-4 text-black" style="background-color: #363636; border-radius: 0px 0px 20px 20px;">
+  <div class="d-flex justify-content-end text-center py-1">
+    <div>
+      <p class="mb-1 h5">25</p>
+      <p class="small text-muted mb-0">Total devices</p>
+    </div>
+    <div class="px-3">
+      <p class="mb-1 h5">20</p>
+      <p class="small text-muted mb-0">Total active devices</p>
+    </div>
+    <div>
+      <p class="mb-1 h5">5</p>
+      <p class="small text-muted mb-0">Total inactive devices</p>
+    </div>
+  </div>
+<div class="card-body p-4 text-black">
+  <div class="mb-5">
+    <p class="lead fw-normal mb-1">About</p>
+    <div class="p-4" style="background-color: #222222; border-radius: 20px;">
+      <p class="font-italic mb-0"><b>Username</b>: mijatovic</p>
+      <p class="font-italic mb-0"><b>Email</b>: {{userInfo.email}}</p>
+      <p class="font-italic mb-1"><b>Address</b>: Kragujevac</p>
+      <p class="font-italic mb-1"><b>Phone</b>: 069 111-111</p>
+      <p class="font-italic mb-1"><b>Date of birth</b>: 1.1.2000</p>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>-->

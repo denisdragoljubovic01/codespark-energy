@@ -1,0 +1,23 @@
+<div class="card">
+    <div style="width:100%; height:fit-content; position:relative;">
+        <div [ngClass]="{'icon' : hasIcon}" >
+            <span><img src="../../../../assets/icons/images/icons8-graph-24.png" class="slika"></span>
+        </div>
+
+        <div class="subtitle-card" [ngClass]="{'sub-width' : !hasIcon}">
+
+            <span>{{Title}}</span>
+        </div>
+    </div>
+    <div style="width:100%; height:fit-content; position:relative;">
+        <div class="main-stat-card">  
+            <span [ngClass]="{'ligh-theme-text-color-gray':lightMode,'color-white':!lightMode}">{{value}}</span>
+        </div>
+        <div class="kwh-card">
+            <span  [ngClass]="{'ligh-theme-text-color-gray':lightMode,'color-white':!lightMode}">kWh</span>
+        </div>
+    </div>
+    <div class="subtitle-2">  
+        <span [ngClass]="{'ligh-theme-text-color-gray':lightMode,'color-white':!lightMode}"> {{subTitle}}</span> 
+    </div>
+</div>

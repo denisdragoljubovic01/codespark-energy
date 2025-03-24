@@ -1,0 +1,122 @@
+#dotnet
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
+
+# Visual Studio Code
+.vscode
+
+# Rider
+.idea
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Visual Studio 2022
+.vs/
+
+#angular
+
+.DS_STORE
+
+/dist/
+/bazel-out
+/integration/bazel/bazel-*
+*.log
+/node_modules/
+
+# CircleCI temporary file for cache key computation.
+# See `save_month_to_file` in `.circleci/config.yml`.
+month.txt
+
+# Include when developing application packages.
+pubspec.lock
+.c9
+.idea/
+.devcontainer/*
+!.devcontainer/README.md
+!.devcontainer/recommended-devcontainer.json
+!.devcontainer/recommended-Dockerfile
+.settings/
+.vscode/launch.json
+.vscode/settings.json
+.vscode/tasks.json
+*.swo
+*.swp
+modules/.settings
+modules/.vscode
+.vimrc
+.nvimrc
+
+# Don't check in secret files
+*secret.js
+
+# Ignore npm/yarn debug log
+npm-debug.log
+yarn-error.log
+
+# build-analytics
+.build-analytics
+
+# rollup-test output
+/modules/rollup-test/dist/
+
+# User specific bazel settings
+.bazelrc.user
+
+# User specific ng-dev settings
+.ng-dev.user*
+
+.notes.md
+baseline.json
+
+# Ignore .history for the xyz.local-history VSCode extension
+.history
+
+# Husky
+.husky/_
+aio/content/examples/.DS_Store
+/sandbox/Boris Dugic/DemoApp/Backend/DemoApp/obj/Debug/net7.0/DemoApp.csproj.AssemblyReference.cache
+/sandbox/Boris Dugic/DemoApp/Backend/DemoApp/obj/Debug/net7.0/DemoApp.GeneratedMSBuildEditorConfig.editorconfig
+/sandbox/Boris Dugic/DemoApp/Backend/DemoApp/obj/Release/net7.0/DemoApp.csproj.AssemblyReference.cache
+/sandbox/Boris Dugic/DemoApp/Backend/DemoApp/obj/Release/net7.0/DemoApp.GeneratedMSBuildEditorConfig.editorconfig
+/sandbox/denis_dragoljubovic/back/API/obj/Debug/net7.0/API.csproj.AssemblyReference.cache
+/sandbox/denis_dragoljubovic/back/API/obj/Debug/net7.0/API.GeneratedMSBuildEditorConfig.editorconfig
+/sandbox/denis_dragoljubovic/back/API/obj/Release/net7.0/API.csproj.AssemblyReference.cache
+/sandbox/denis_dragoljubovic/back/API/obj/Release/net7.0/API.GeneratedMSBuildEditorConfig.editorconfig
+/sandbox/Marija Andric/demoAPI/demoApp/demoApp/obj/Debug/net6.0/demoApp.assets.cache
+/sandbox/Marija Andric/demoAPI/demoApp/demoApp/obj/Debug/net6.0/demoApp.GeneratedMSBuildEditorConfig.editorconfig
+/sandbox/Marija Andric/demoAPI/demoApp/demoApp/obj/Release/net6.0/demoApp.assets.cache
+/sandbox/Marija Andric/demoAPI/demoApp/demoApp/obj/Release/net6.0/demoApp.GeneratedMSBuildEditorConfig.editorconfig
+wattApp/backend/backend/sqllite.db-shm
+wattApp/backend/backend/sqllite.db-wal
+wattApp/frontend/wattApp/package-lock.json
+
+# SqLite
+Data Source=sqllite.db;
+sqllite.db
+.db
+.db;
+wattApp/backend/backend/sqllite.sqbpro

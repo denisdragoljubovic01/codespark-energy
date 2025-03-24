@@ -1,0 +1,102 @@
+<p-table class="d-table" [value]="devices" #dtUsers class="ui-table-default" dataKey="id" [scrollable]="true" 
+          [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"
+          [globalFilterFields]="['deviceModel','deviceType','isActive']" [paginator]="true" [ngClass]="{'light-mode': lightMode,'light-mode2': lightMode, 'dark-mode2': !lightMode,'dark-mode': !lightMode}"
+          style="
+            margin-top:calc(2.8%);
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            height: fit-content;
+            width: 100%;
+            border-radius: 20px;
+            transition: ease-in-out;
+            padding:10px 20px;
+            ">
+
+            <ng-template pTemplate="caption">
+              <div class="flexRow">
+                  <h3 >
+                  Devices</h3>
+                  <span class="p-input-icon-left margin-left__auto margin-right__16px">
+                      <i class="pi pi-search"></i>
+                      <input #searchInput pInputText type="text" (input)="dtUsers.filterGlobal($any($event.target).value, 'contains')" placeholder="Search keyword" />
+                  </span>
+                  <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dtUsers)"></button>
+              </div>
+            </ng-template>
+
+            <ng-template pTemplate="header">
+              <tr>
+                <th pSortableColumn="deviceModel" style="min-width:8rem;  border-top:4px solid #46c5f1; border-bottom:4px solid #46c5f1;">
+                  <div class="flexRow">
+                      <p style=" font-size: 18px !important;">Device model</p>
+                      <p-sortIcon field="deviceModel"></p-sortIcon>
+                      <p-columnFilter class="ml-auto" type="text" field="deviceModel" display="menu"></p-columnFilter>
+                  </div>
+                </th>
+                <th pSortableColumn="deviceType" style="min-width:9rem;  border-top:4px solid #46c5f1; border-bottom:4px solid #46c5f1">
+                  <div class="flexRow">
+                      <p style=" font-size: 18px !important;">Type</p>
+                      <p-sortIcon field="deviceType"></p-sortIcon>
+                      <!-- <p-columnFilter class="ml-auto" type="text" field="deviceType" display="menu"></p-columnFilter> -->
+                      <p-columnFilter field="deviceType" matchMode="equals" display="menu">
+                        <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                          <p-dropdown [(ngModel)]="selectedStatusFilter" [options]="statusFilterOptions" (onChange)="filterStatus($event.value)" placeholder="Any">
+                            <ng-template let-option pTemplate="item">
+                              <p-tag [value]="option.value" [severity]="getSeverity(option.label)"></p-tag>
+                            </ng-template>
+                          </p-dropdown>                  
+                        </ng-template>
+                    </p-columnFilter>
+                  </div>
+                </th>
+                <th pSortableColumn="isActive" style="min-width:10rem;  border-top:4px solid #46c5f1; border-bottom:4px solid #46c5f1">
+                  <div class="flexRow">
+                      <p style=" font-size: 18px !important;">Active</p>
+                      <p-sortIcon field="isActive"></p-sortIcon>
+                      <!-- <p-columnFilter class="ml-auto" type="text" field="isActive" display="menu"></p-columnFilter> -->
+                      <p-columnFilter field="isActive" matchMode="equals" display="menu">
+                        <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                          <p-dropdown [(ngModel)]="selectedActivityFilter" [options]="activityFilterOptions" (onChange)="filterActivity($event.value)" placeholder="Any">
+                            <ng-template let-option pTemplate="item">
+                              <p-tag [value]="option.value" [severity]="getSeverityActivity(option.label)"></p-tag>
+                            </ng-template>
+                          </p-dropdown>                  
+                        </ng-template>
+                    </p-columnFilter>
+                  </div>
+                </th>
+                <th pSortableColumn="role" style="min-width:8rem; border-top:4px solid #46c5f1; border-bottom:4px solid #46c5f1">
+                  <div class="flexRow">
+                      <p style=" font-size: 18px !important;">Turn on/Turn off</p>
+                      <!-- <p-sortIcon field="role"></p-sortIcon>
+                      <p-columnFilter class="ml-auto" type="text" field="role" display="menu"></p-columnFilter> -->
+                  </div>
+                </th>
+              </tr>
+            </ng-template>
+
+              <ng-template pTemplate="body" let-devices>
+                <tr>
+                  <td>{{devices?.deviceModel}}</td>
+                  <td>{{devices?.deviceType}}</td>
+                  <td>{{devices?.isActive}}</td>
+                  <td>
+                    <div *ngIf = "devices.allowOperatorControll">
+                      <p-inputSwitch [(ngModel)]="devices.isActive" (onChange)="handleRunningSwitchChange(devices)" class="margin-left__auto width__fit-content"/>
+                    </div>
+                    <div *ngIf = "devices.allowOperatorControll == false">
+                      You cannot operate the device
+                    </div>
+                  </td>
+                </tr>
+                
+              </ng-template>
+
+              <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="5">No devices found.</td>
+                </tr>
+            </ng-template>
+
+          </p-table>

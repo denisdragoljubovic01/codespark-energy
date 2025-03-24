@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<div class="pozadina">
+<div class="parallaxcon" #parallaxcon>
+    <img src = "/assets/images/landing-page-images/citilights.jpg" id="iza">
+    <h2 id="text">WattApp</h2>
+    <h3 id="text2">Power up your life, but don’t forget to power up your safety</h3>
+    <button id="btn" routerLink="/login">Try it</button>
+    <img src = "/assets/images/landing-page-images/citilights2.png" id="ispred">
+    <img src = "/assets/images/landing-page-images/network.png" id="iza" class="moving-image">
+</div>
+
+<div class="cards">
+  <h2>Find your solution</h2>
+  <div class="card-group">
+      <div class="card" >
+        <img class="card-img-top" src="/assets/images/landing-page-images/connectedcity.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Green energy</h5>
+          <p class="card-text">Renewable energy comes from sources that are constantly and naturally renewed (hence the name), such as wind power and solar energy. Renewable energy is also often called sustainable energy. Renewable energy sources are the opposite of fossil fuels, like coal and gas, which are a finite energy source..</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="/assets/images/landing-page-images/solarniPanel.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Why You Should Use Solar Power</h5>
+          <p class="card-text">Solar power is a great way to reduce your carbon footprint. There's nothing about solar power that pollutes mother nature. Solar power doesn't release any greenhouse gasses, and except for needing a source of clean water to function, it uses absolutely no other resources. Hence, it's safe and environmentally-friendly.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="/assets/images/landing-page-images/city.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">What is the importance of energy statistics?</h5>
+          <p class="card-text">Annual energy statistics provide the most comprehensive coverage. On the supply side, data cover production, trade and stock changes. The transformation of energies is also included (for example electricity generation from natural gas and refining crude oil into motor gasoline).</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+</div>
+<h2 style="margin: 30px 0;">Empowering Sustainable Energy Management</h2>
+<app-timeline style="margin: 50px 0px"></app-timeline>
+<h2 style="margin-top: 30px;">Tips for saving electricity</h2>
+<app-gallery></app-gallery>
+
+<!--<h2>Gallery</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-6 col-12" *ngFor="let image of images">
+      <img class="img-fluid" [src]="image" alt="Gallery Image">
+    </div>
+  </div>
+</div>-->
+
+
+<app-landing-page-team class="team"></app-landing-page-team>
+<app-landing-page-footer></app-landing-page-footer>
+
+</div>

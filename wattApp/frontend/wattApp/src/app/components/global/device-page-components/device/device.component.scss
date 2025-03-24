@@ -1,0 +1,21 @@
+@media only screen and (min-width: 1110px) {
+  .phone {
+    display:none;
+  }
+}
+
+@media only screen and (max-width: 1110px) {
+  .desktop {
+    display:none;
+  }
+  h3{
+    font-size: 20px;
+  }
+}
+
+.light-mode-title-bar h3, a{
+  color:#323232;
+
+}
+
+

@@ -1,0 +1,283 @@
+
+.login {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  background-repeat:repeat;
+  
+}
+
+.dark-mode3 {
+  box-shadow: 5px 5px 15px black;
+}
+.login_box {
+  width: 1050px;
+  height: 600px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  display: flex;
+  overflow: hidden;
+}
+
+.login_box .left {
+  width: 41%;
+  height: 100%;
+  padding: 25px 25px;
+}
+
+.login_box .right {
+  width: 59%;
+  height: 100%;
+}
+
+.left .top_link a {
+  color: #1d5f6b;
+  font-weight: 400;
+}
+
+.left .top_link {
+  height: 20px;
+  font-weight: bolder;
+}
+
+.left .contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  height: 100%;
+  width: 73%;
+  margin: auto;
+  font-weight: bolder;
+  
+}
+
+.left h3 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bolder;
+}
+
+.left input {
+  border: none;
+  width: 80%;
+  margin: 15px 0px;
+  border-bottom: 1px solid #787878;
+  border-image: linear-gradient(45deg, #46c5f1 10%, #5245b7 100%) 1;
+  padding: 7px 9px;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  font-weight: 600;
+  font-size: 14px;
+
+ 
+}
+
+.submit {
+  border: none;
+  padding: 8px 30px;
+  border-radius: 32px;
+  display: block;
+  margin: auto;
+  margin-top:120px;
+  background: linear-gradient(45deg, #46c5f1 10%, #5245b7 100%);
+  color: #fff;
+  font-weight:bolder;
+}
+
+.submit:hover{
+  span {
+    background: -webkit-linear-gradient(45deg, #46c5f1 10%, #5245b7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  background: none;
+  box-shadow: none;
+}
+
+
+.right {
+  background: linear-gradient(45deg, #46c5f1 10%, #5245b7 100%);
+
+  color: #fff;
+  position: relative;
+  background-size: 650px 600px;
+}
+
+.right .right-text {
+  height: 100%;
+  position: relative;
+  transform: translate(0%, 45%);
+}
+.info{
+
+  padding-left: 60px;
+}
+.info p {
+  display: inline-block;
+  /* ili */
+  /* float: left; */
+}
+
+.fa-sharp {
+  color: white;
+  border-radius: 90%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding-top: 7px;
+  font-size: 26px;
+
+}
+.bold
+{
+  font-weight: 500;
+  padding-left: 10px;
+}
+.naziv
+{
+  padding-left: 7px;
+}
+.fa-phone {
+  color: white;
+  border-radius: 90%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding-top: 8px;
+  font-size: 22px;
+
+}
+.fa-envelope {
+  color: white;
+  border-radius: 90%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding-top: 8px;
+  font-size: 22px;
+
+}
+.fa-earth-americas {
+  color: white;
+  border-radius: 90%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding-top: 8px;
+  font-size: 22px;
+
+}
+.text2
+{
+  font-size: 29px;
+  padding-left: 40px;
+  padding-top: 100px;
+  font-weight: bolder;
+  font-family: 'Montserrat',sans-serif;
+}
+.text3
+{
+  font-size: 20px;
+  padding-left: 40px;
+  width:500px;
+  margin-bottom: 5%;
+  font-weight: bolder;
+
+}
+
+
+
+
+.light-mode {
+  
+  box-shadow: 12px 12px 40px -5px rgb(171, 171, 171);
+  h3 {
+    color: #323232;
+  }
+  input {
+    color:#373737 !important;
+    background: rgba(0, 0, 0, 0) !important;
+  }
+  input::placeholder {
+      color:#6c6c6c !important;
+    
+  }
+}
+
+.light-mode-title-bar h3{
+  color:#323232;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+  .login_box {
+    max-width: 100%;
+  }
+
+
+  .left input {
+    max-width: 100%;
+  }
+
+  .right-text h2 {
+    font-size: 2.5rem;
+  }
+
+  .right-text h5 {
+    font-size: 1.5rem;
+  }
+}
+
+
+@media (max-width: 748px) {
+  body{
+    display: flex;
+    justify-content: center; /* new CSS */
+    align-items: center; 
+    background: -webkit-linear-gradient(45deg, #46c5f1 10%, #5245b7 100%);
+  }
+
+  .right{
+    display: none;
+  }
+
+  .login_box{
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    padding: 25px;
+    justify-content: center; /* new CSS */
+    align-items: center; 
+    top:35%;
+    left: 58%;
+  }
+
+  .login{
+    width: 85%;
+  }
+
+  .left {
+    height: auto;
+    padding-right: 0;
+    margin: 0px auto;
+  }
+
+  .left input {
+    
+    width:230px;
+  }
+
+  .submit {
+    padding: 7px 40px;
+    margin-top: 50px;
+  }
+
+  
+}

@@ -1,0 +1,24 @@
+<div [ngClass]="{'light-mode-circles':lightMode}">
+<div class=" circle circle-1">
+    <div class="circle circle-2"  *ngIf='result != null'>
+        <div class="circle-icon">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+        <div class="main-stat">
+            <span><p style="font-size: 20px;">{{result.toFixed(1)}} </p></span> 
+        </div>
+        <div>
+        <!--<div class="kwh"  *ngIf='result != null'>
+            <span><p style="font-size: 20px;">{{result.toFiexd(2)}}</p></span>
+        </div>-->
+        </div>
+
+    </div>
+    <div class="circle circle-2"  *ngIf='result == null'>
+        <div class="circle-icon">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+        <p style="font-size: 15px;">There are no devices</p>
+    </div>
+</div>
+</div>

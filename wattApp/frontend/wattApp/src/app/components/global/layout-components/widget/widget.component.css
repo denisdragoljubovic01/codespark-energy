@@ -1,0 +1,141 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 100px;
+    /*min-width: 340px;*/
+    border-radius: 20px;
+    padding:  10px 0px 10px 15px;
+    /*
+    background: linear-gradient(180deg, #1e1e1e 50%, #121212 100%) ;
+    */
+    /* LIGHT VERZIJA - BG WHITE */
+
+    flex-basis: calc(33.33333% - 30px);
+}
+
+
+:host.hover,
+:host:hover>.item_date-box {
+  text-decoration: none;
+  color: #FFF;
+  cursor:default;
+}
+
+:host:hover>.item_bg {
+  transform: scale(10);
+}
+:host>.item_title {
+  margin:7px 10px 0px 0px;
+  overflow: hidden;
+  font-weight: bolder;
+  font-size: 22px;
+  /*
+  color: #FFF;
+  */
+  /* LIGHT VERZIJA -  */
+
+  align-items: end;
+  cursor: default;
+  z-index: 2;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-transition: color .5s ease;
+  -o-transition: color .5s ease;
+  transition: color .5s ease;
+}
+
+:host>.item_date-box {
+  margin-right:50px;
+  font-size: 14px;
+  height:50%;
+  min-height:35px;
+  z-index: 2;
+  position: relative;
+  cursor: default;
+  font-weight: bolder;
+  font-size: 15px;
+  padding-right: 10px;
+  -webkit-transition: color .5s ease;
+  -o-transition: color .5s ease;
+  transition: color .5s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+:host>.item_date {
+  font-weight: bolder;
+  cursor: default;
+  font-size: 14px;
+  padding-right: 10px;
+  -webkit-transition: color .5s ease;
+  -o-transition: color .5s ease;
+  transition: color .5s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+:host>.item_bg {
+  height: 120px;
+  width: 120px;
+  z-index: 1;
+  position: absolute;
+  top: -75px;
+  right: -75px;
+  border-radius: 50%;
+
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.yellow-color {
+  color:#885ec0;
+}
+
+.bg-yellow-color {
+  background-color:#885ec0;
+
+}
+
+.blue-color {
+  color:#46c5f1;
+}
+.bg-blue-color {
+  background-color: #46c5f1;
+
+}
+
+.orange-color {
+  color:#f5805a;
+}
+.bg-orange-color {
+  background: #f5805a;
+}
+
+
+.pink-color {
+  color: #eb4886;
+}
+.bg-pink-color {
+  background: #eb4886;
+}
+
+@media only screen and (max-width: 639px) {
+  :host {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  :host {
+    max-height: 100px;
+    margin-bottom: 5px;
+  }
+  :host>.item_title {
+    font-size: 20px;
+  }
+  :host>.item_date-box {
+    font-size: 15px;
+    padding-right: 5px;
+  }
+}

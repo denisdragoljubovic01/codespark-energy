@@ -1,0 +1,455 @@
+.device-information{
+    width: 100%;
+    min-width: 300px;
+    height: fit-content;
+    padding: 16px;
+    border-radius: 20px;
+    color: white;
+    margin-bottom:32px;
+  }
+  .top-card {
+    width:100%;
+    height:fit-content;
+}
+  
+  .bold-text {
+    font-weight: bold;
+    font-size:16px;
+  }
+  .main-card {
+    display:flex;
+    flex-direction:column; 
+    height:fit-content;
+    border-radius: 20px;
+    min-width: 330px;
+    background-color: transparent;
+  }
+  .card-1 {
+    position: relative;
+    width:100%; 
+    height:350px;
+    min-height:370px;
+    border-radius: 20px;   
+  }
+  .card-2 {
+    position: relative;
+    display:flex;
+    float:right; 
+    flex-direction:row; 
+    width:100%;
+    margin-top:10px;
+    height:fit-content;
+    justify-content: center;
+    align-items: center;
+  }
+  .card-2-1{
+    position: relative;
+    display:flex;
+    float:right;
+    flex-direction:row;  
+    width:50%; 
+    height:fit-content;
+    border-radius: 20px;
+    padding:10px 10px 0px 0px;
+  }
+  .widgets {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:100%;
+    padding: 0px 0;
+    justify-content:space-between;
+    position:relative;
+    float:left;
+  }
+  
+  .widget {
+    flex-basis: calc(18.4%);
+    margin-bottom: 30px;
+    display: inline-block;
+    position: relative;
+    flex-direction: row;
+    max-width: 23%;
+    min-width: 240px;
+    width:20%;
+  }
+  .card-2-2{
+    position: relative;
+    display:flex;
+    float:right;
+    flex-direction:column;  
+    width:50%; 
+    height:100%;
+    border-radius: 20px;
+    padding:10px 0px 0px 10px;
+  }
+  .circle {
+    display:flex;
+    flex-direction:column; 
+    align-items: center;
+    justify-content: center;
+  }
+  .circle-1 {
+    margin:auto;
+    border-radius: 50%;
+    width:200px;
+    height:200px;
+    background: linear-gradient(45deg, #46c5f1 60%, #864cdd 100%);
+  }
+  .title1 {
+    text-align: center;
+    font-size:20px;
+    height:30px;
+    font-weight: bold;
+    margin-top:10px;
+    position: relative;
+  }
+  .subtitle {
+    text-align: center;
+    height:40px;
+    position: relative;
+  }
+  .subtitle h5 {
+    font-size: 14px;
+  }
+  .dark-mode2 {
+    background: linear-gradient(180deg, #1b1b1b 30%, #121212 100%) ;
+    box-shadow: 5px 5px 15px black !important; 
+    border-radius: 20px;
+    margin-bottom:32px;
+  }
+  .stats {
+    position: relative;
+    width:100%;
+    height:140px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .stats:hover, .stats:focus, .stats:active {
+    scale: 1.05;
+  }
+  .stat-3{
+    background: #1b1b1b !important;  
+    position: relative;
+    float:right;
+  }
+  .subtitle-2 {
+    font-size:12px;
+    span {
+        color:rgb(140, 140, 140);
+    }
+    padding-left:10px;
+    font-weight:bold;
+  }
+  .subtitle-card {
+    width:100%;
+    display: inline-block;
+    font-size: 14px;
+    padding:8px 5px 0px 10px;
+    span {
+        color: #46c5f1;
+        font-weight:bold;
+    }
+  }
+  .main-stat {
+    font-size: 40px;
+    font-weight: bolder;
+    height:fit-content !important;
+    
+  }
+  .main-stat-card {
+    position: relative;
+    font-size: 30px;
+    font-weight: bolder;
+    padding-left:10px;
+    float:left;
+    padding-top:20px;
+  }
+  .kwh-card {
+    padding:34px 5px 0px 10px;
+    width:10%;
+    display:inline-block;
+  
+    span {
+        font-size: 18px;
+    }
+  }
+  .sub-subtitle {
+    padding-left: 20px;
+    font-size: 12px;
+  }
+  .title1 {
+    span {
+        background: linear-gradient(0deg, #46c5f1 10%, #5245b7 100%);
+  
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+  }
+  .title, .today, .kwh {
+    font-weight: bold;
+    span {
+        background: linear-gradient(45deg, #46c5f1 10%, #5245b7 100%);
+  
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+  }
+  .title, .today {
+    font-size:12px;
+  }
+  .circle-icon {
+  
+    i {
+        background: linear-gradient(45deg, #46c5f1 10%, #5245b7 100%);
+  
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+  }
+  .kwh{
+    font-size: 20px;
+  }
+  .fa-bolt {
+    font-size:26px;
+  }
+  .colored-text {
+    padding:20px 0px;
+    h5 {
+        font-size: 24px;
+        font-weight: bolder;
+        color: #46c5f1;
+    }
+    
+  }
+  .colored-text2 {
+    padding:0px 0px;
+    h5 {
+        font-size: 24px;
+        font-weight: bolder;
+        color: #46c5f1;
+    }
+    
+  }
+
+  .stats-cards{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    padding: 0px 0;
+    justify-content:space-between;
+    position:relative;
+  }
+  
+  .stats-card{
+    display:flex;
+    flex-basis: 47%;
+  }
+
+  .circle-2 {
+    margin:auto;
+    border-radius: 50%;
+    
+    width:170px;
+    height:170px;
+  }
+
+  
+  .icon {
+    width:40px;
+    text-align: center;
+    height:40px;
+    background: linear-gradient(45deg, #46c5f1 0%, #5245b7 100%);
+  
+    margin-left: 10px;
+    margin-top:10px;
+    border-radius: 10px;
+    position: relative;
+    justify-content: center;
+    vertical-align: middle;
+    float:left;
+    span {
+        background: white;
+  
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+  
+    }
+  }
+  .icon-1 i{
+    font-size: 24px;
+    background: #46c5f1;
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top:20px;
+    margin-right:10px;
+    position: relative;
+    
+  }
+  .icon i {
+    font-size: 24px;
+    margin: 7px;
+  }
+
+:host :ng-deep .p-dropdown.p-component {
+  width:100% !important;
+}
+
+  .icon-2 {
+    width:40px;
+    height:40px;
+    font-size:16px;
+    background-color: #1b1b1b;
+    border-radius: 50%;
+    box-shadow:2px 2px 15px black;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .icon-2 {
+    padding:9px 12px;
+  }
+  .float-element {
+    width:40px;
+    height:40px;
+    margin:10px 0px;
+    border-radius: 50%;
+    background: #1b1b1b;
+    box-shadow:2px 2px 15px black;
+    font-size: 16px;
+    padding:8px 0px 0px 13px;
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  
+  }
+  .icon-3 {
+    width:100%;
+    height:100%;
+    background: linear-gradient(45deg, #46c5f1 10%, #5245b7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
+  .light-mode-device-info {
+  
+    box-shadow: 8px 8px 35px -15px rgb(200, 200, 200);
+    background: white;
+    span {
+      color: #323232;
+      font-weight: bold;
+    }
+  }
+  
+  
+  .dark-mode-device-info {
+    background: linear-gradient(180deg, #1b1b1b 30%, #121212 100%) ;
+    box-shadow: 5px 5px 15px black !important; 
+  }
+
+
+
+  @media only screen and (min-width: 1110px) {
+    .desktop {
+      width:100%;
+    }
+  }
+  
+  @media only screen and (max-width: 1110px) {
+    .desktop {
+      display:none;
+    }
+  }
+  
+  @media only screen and (min-width: 1110px) {
+  .card-1 {
+  }
+  .menu {
+    display:none;
+  }
+  .card-2-2 {
+    width:100%;
+  }
+  .card-2-1 {
+    width:100%;
+  }
+  .stats {
+    width:100%;
+  }
+  
+  }
+  
+  
+  
+  @media only screen and (min-width: 1110px) {
+    .device {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+  
+    .info{
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+    }
+  
+    .twoCharts{
+      display: none;
+    }
+  
+    .device-information {
+      display:none;
+    }
+    .main-card {
+      display:none;
+    }
+  }
+  
+  @media only screen and (max-width: 1110px) {
+    .device {
+      display: flex;
+      flex-direction: column;
+    }
+    .circles{
+      width:100%;
+    }
+  
+    .pc-main-card {
+      display:none;
+    }
+    
+
+    .widgets{
+      overflow-x: scroll;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    .widget{
+      margin-right: 10px;
+      margin-left: 10px;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .widgets {
+      margin-bottom:20px;
+    }
+
+    .device-information {
+      margin-top: 20px;
+    }
+  
+    .info{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    #oneChart{
+      margin-top: 32px;
+      display: none;
+    }
+  }
