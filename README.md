@@ -1,7 +1,4 @@
-#WattApp - CodeSpark Energy
-- > http://softeng.pmf.kg.ac.rs:10011/
 
-## O nama
 CodeSpark Energy je tim stručnjaka koji se bavi razvojem inovativne aplikacije čiji je svrha praćenje potrošnje, proizvodnje i skladištenje električne energije. Ova aplikacija je namenjena različitim vrstama korisnika: DSO korisnicima i prosumerima.
 
 DSO korisnici koriste aplikaciju kako bi imali uvid u stanje elektroenergetskog sistema u realnom vremenu. Mogu pratiti potrošnju i proizvodnju električne energije, skladištenje, upravljati distribucijskom mrežom i slično. Aplikacija pruža korisnicima alate za praćenje i analizu podataka i upozorava ih na potencijalne probleme u elektroenergetskom sistemu.
